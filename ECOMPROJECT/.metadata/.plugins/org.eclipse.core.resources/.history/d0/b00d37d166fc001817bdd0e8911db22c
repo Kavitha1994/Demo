@@ -1,0 +1,12 @@
+package com.niit.EComFront.Controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import com.niit.EComBack.dao.UserDetailDAO;
+
+@Controller
+public class LoginController {
+@Autowired
+UserDetailDAO userdetailDAO;
+}

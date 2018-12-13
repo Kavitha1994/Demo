@@ -1,0 +1,6 @@
+
+Dec 04, 2018 21:50:32.25 NEW SESSION
+Dec 04, 2018 21:50:32.25 [3516:7896:1204/215032:ERROR:audio_low_latency_output_win.cc(268)] Bailing out due to non-perfect timing.
+
+Dec 12, 2018 16:23:17.17 NEW SESSION
+Dec 12, 2018 16:23:17.17 [5732:6628:1212/162317:ERROR:audio_low_latency_output_win.cc(268)] Bailing out due to non-perfect timing.

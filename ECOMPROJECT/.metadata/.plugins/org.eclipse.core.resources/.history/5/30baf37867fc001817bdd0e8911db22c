@@ -1,0 +1,50 @@
+package com.niit.EComFront.Controller;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.niit.EComBack.dao.UserDetailDAO;
+import com.niit.EComBack.model.Category;
+import com.niit.EComBack.model.Product;
+import com.niit.EComBack.model.UserDetail;
+
+@Controller
+public class LoginController {
+@Autowired
+UserDetailDAO userdetailDAO;
+
+@RequestMapping("/reg")
+public String regPage(Model m)
+{
+	m.addAttribute("userDetail", new UserDetail());
+	m.addAttribute("regPage", true);
+	m.addAttribute("haserror", false);
+	return "index";
+}
+@RequestMapping(value = "adduserdetail", method = RequestMethod.POST)
+public String adduser(@Valid @ModelAttribute("userModel") UserDetail userDetail, BindingResult br, Model m)
+{
+	if (br.hasErrors())
+	{
+		m.addAttribute("regPage", true);
+		m.addAttribute("userDetail", userDetail);
+		m.addAttribute("haserror", true);
+		m.addAttribute("error", "please check your data");
+		
+		return "index";
+	}
+	 else {
+
+			try {
+				userdetailDAO.adduser(userDetail);
+				return "redirect:/reg";
+			} catch (Exception e) {
+
+}}
